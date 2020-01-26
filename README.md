@@ -71,5 +71,3 @@ stored in MySQL
 - Write CI Configuration
 - Dockerize the application
 - Update the docker-compose
-
-### Demonstrate the entire application
