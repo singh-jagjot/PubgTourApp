@@ -1,0 +1,36 @@
+<mat-card class="detail-card">
+  <mat-card-header class="detail-header">
+    <mat-card-title *ngIf="isFavourities">Match</mat-card-title>
+    <mat-card-title *ngIf="!isFavourities">{{detailCard.type  | titlecase}}</mat-card-title>
+    <!-- <mat-card-subtitle>{{detailCard.type  | titlecase}} Id: {{detailCard.id}}</mat-card-subtitle> -->
+  </mat-card-header>
+  <img mat-card-image src="../assets/img/pubgs.jpg" alt="pubg-poster-image">
+  <mat-card-content class="detail-overview">
+    <div *ngIf="isFavourities">
+      <span>
+        Match Title: {{detailCard.titleId}}
+      </span>
+      <span>
+        Created on {{detailCard.createdAt | date:'shortDate'}}
+      </span>
+    </div>
+    <div *ngIf="!isFavourities">
+      <span>
+        {{detailCard.type  | titlecase}} Id: {{detailCard.id.substring(0,16)}}
+      </span>
+      <span>
+        Created on {{detailCard.attributes.createdAt | date:'shortDate'}}
+      </span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="nor-buttons">
+      <button *ngIf="isTournament" id="viewMatchesButton" mat-raised-button color="primary" (click)="viewMatches()">View Matches</button>
+      <button *ngIf="isMatch" id="viewDetailsButton" mat-raised-button color="primary" (click)="getMatchSummary()">View Details</button>
+    </div>
+    <div *ngIf="isFavourities" class="fav-buttons">
+      <button mat-raised-button id="viewFavouritiesMatchSummaryButton" color="primary" (click)="viewFavouritiesMatchSummary()">Summary</button>
+      <button mat-raised-button id="deleteFromFavouritiesButton" color="primary" (click)="deleteFromFavourities()">Delete</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

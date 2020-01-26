@@ -1,0 +1,35 @@
+<div class="login">
+  <mat-card class="login-card">
+    <mat-card-header class="header">
+      <mat-card-title class="header-text">Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-form">
+        <div class="form-input">
+          <mat-form-field>
+            <input matInput placeholder="Username" type="text" [(ngModel)]="user.userName" class="user-name" id="userName" name="userName" required>
+          </mat-form-field>
+          <mat-form-field (keyup.enter)="loginUser()">
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="user.password" id="password" class="user-password" name="password" required>
+            <button mat-icon-button matSuffix [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <mat-card-actions>
+          <button mat-raised-button id="mainLoginButton" class="main-login-button" color="primary" (click)="loginUser()">Login</button>
+
+          <button mat-raised-button id="registerButton" class="register-button" color="primary" routerLink="/register">Register</button>
+
+        </mat-card-actions>
+      </form>
+      <div *ngIf="error == '401'">
+        <span>Wrong Username or Password!!</span>
+      </div>
+      <div *ngIf="(error && error != '401')|| error == '0'">
+        <span>Network or Internal Server Error!!</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

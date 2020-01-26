@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Match Summary</h1>
+<div mat-dialog-content>
+    <mat-list>
+        <mat-list-item>Title:&nbsp; {{match.titleId}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Map Name:&nbsp; {{match.mapName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Custom Match:&nbsp; {{match.isCustomMatch}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Season State:&nbsp; {{match.seasonState}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Duration:&nbsp; {{match.duration}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Game Mode:&nbsp; {{match.gameMode}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Created On:&nbsp; {{match.createdAt}}</mat-list-item>
+      </mat-list>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onClose()">Close</button>
+    <button mat-raised-button color="primary" id="addToFavouritiesButton" (click)="addToFavourities()" cdkFocusInitial>Add To Favourities</button>
+</div>

@@ -1,0 +1,4 @@
+<div class="favourities-container">
+    <pubg-tournaments-detail-card *ngFor="let match of matchCards" [detailCard]="match" [isFavourities]="true"
+    (deleteMatch)="deleteFromFavourities($event)"></pubg-tournaments-detail-card>
+</div>

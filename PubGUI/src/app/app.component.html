@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <div class="container">
+      <span><mat-icon>gamepad</mat-icon> PubG Tour</span>
+      <span>
+          <a mat-button id="tournamentsButton" routerLink="/home"><mat-icon>public</mat-icon> Tournaments</a>
+          <a mat-button id="favouritiesButton" routerLink="/home/favourities"><mat-icon>favorite_border</mat-icon> Favourities</a>
+          <a mat-button id="registerLoginButton" *ngIf="!(isLoggedIn$ | async)" routerLink="/login"><mat-icon>person_outline</mat-icon> Login/Register</a>
+          <a mat-button id="logoutButton" *ngIf="isLoggedIn$ | async" (click)="logout()" routerLink="/login"><mat-icon>person_outline</mat-icon> Logout</a>
+      </span>
+  </div>
+</mat-toolbar>
+<div class="main-outlet">
+  <router-outlet></router-outlet>
+</div>

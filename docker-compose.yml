@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+ mysql:
+  image: "mysql:latest"
+  ports:
+   - "3306:3306"
+  container_name: pubg-mysql
+  network_mode: host
+  environment:
+   MYSQL_ROOT_PASSWORD: root
+   MYSQL_DATABASE: pubgdb
+   MYSQL_USER: app_root
+   MYSQL_PASSWORD: root123
+ userservice:
+  image: userserviceImg
+  build: userservice/
+  restart: always
+  container_name: userserviceBackend
+  network_mode: host
+  depends_on:
+   - mysql
+ favouriteservice:
+  image: favserviceImg
+  build: favouriteservice/
+  restart: always
+  network_mode: host
+  container_name: favserviceBackend
+  depends_on:
+   - mysql
+ frontendservice:
+  image: pubguiImg
+  build: PubGUI/
+  container_name: pubguiFrontend
+  ports:
+   - "4200:80"

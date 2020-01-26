@@ -1,0 +1,7 @@
+<div *ngIf="(error || error == '0')">
+    <span>Network or Internal Server Error!!</span>
+</div>
+<div class="matches-container">
+    <pubg-tournaments-detail-card *ngFor="let match of matchCards" [detailCard]="match" [isMatch]="true">
+    </pubg-tournaments-detail-card>
+</div>

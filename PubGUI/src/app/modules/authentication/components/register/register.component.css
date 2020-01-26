@@ -1,0 +1,25 @@
+.register {
+  display: block;
+  margin: auto;
+  margin-top: 2%;
+  max-width: 700px;
+}
+.header {
+  display: block;
+  margin: auto;
+}
+.header-text {
+  font-size: x-large;
+  text-align: center;
+}
+.form-input {
+  display: block;
+  margin: auto;
+}
+.form-input > mat-form-field {
+  display: block;
+}
+mat-card-actions {
+  display: inherit;
+  margin: auto;
+}

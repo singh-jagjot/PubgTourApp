@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Match Summary</h1>
+<div mat-dialog-content>
+    <mat-list>
+        <mat-list-item>Title:&nbsp; {{match.titleId}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Match Id:&nbsp; {{match.matchId}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Map Name:&nbsp; {{match.mapName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Custom Match:&nbsp; {{match.isCustomMatch}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Season State:&nbsp; {{match.seasonState}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Duration:&nbsp; {{match.duration}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Game Mode:&nbsp; {{match.gameMode}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Created On:&nbsp; {{match.createdAt}}</mat-list-item>
+    </mat-list>
+    <mat-form-field>
+        <input matInput id="matchCommentsBox" placeholder="Comments" [value]="match.comments" [(ngModel)]="match.comments">
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button id="favouritiesSummaryCloseButton" color="primary" (click)="onClose()">Close</button>
+    <button mat-raised-button id="updateFavouritiesButton" color="primary" (click)="updateFavourities()" cdkFocusInitial>Update</button>
+</div>
